@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace SimpleBlogSystem.Models
+﻿namespace SimpleBlogSystem.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     public class Post
     {
         public Post()
@@ -17,8 +16,10 @@ namespace SimpleBlogSystem.Models
         public DateTime PostDatePublished { get; set; }
         public DateTime PostLastModified { get; set; }
 
-        public ApplicationUser User { get; set; }
-        public ICollection<Comment> Comments { get; set; }
-        public ICollection<Category> Categories { get; set;}
+        public int ApplicationUserId { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Category> Categories { get; set;}
     }
 }

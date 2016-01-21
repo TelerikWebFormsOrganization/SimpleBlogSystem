@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace SimpleBlogSystem.Models
+﻿namespace SimpleBlogSystem.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class Tag
     {
         public Tag()
