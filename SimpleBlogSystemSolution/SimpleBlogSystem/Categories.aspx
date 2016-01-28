@@ -5,13 +5,13 @@
     <div class="col-sm-3 col-md-2 sidebar">
         <asp:ListView runat="server" ID="ListViewCategories">
             <LayoutTemplate>
-                <ul id="list" runat="server" class="nav nav-sidebar">
+                <ul class="nav nav-sidebar">
                     <p runat="server" id="itemPlaceholder"></p>
                 </ul>
             </LayoutTemplate>
             <ItemTemplate>
-                <li id="a" runat="server">
-                    <a id="CategoryLink" runat="server" onserverclick="CategoryLink_ServerClick"><%# Eval("CategoryName") %></a>
+                <li>
+                    <asp:LinkButton ID="CategoryLink" runat="server" Text='<%# Eval("CategoryName") %>'  OnClick="CategoryLink_Click"></asp:LinkButton>
                 </li>
             </ItemTemplate>
         </asp:ListView>
@@ -29,8 +29,8 @@
             <article>
                 <h3><%#Eval("Title") %></h3>
                 <p><%#Eval("PostContent") %></p>
-                <p>Published by <%#Eval("User.UserName") %> at <%#Eval("PostDatePublished") %> </p>
-                <p>Last change at <%#Eval("PostLastModified") %></p>
+                <p>Published by <%#Eval("User.UserName") %> on <%#Eval("PostDatePublished") %> </p>
+                <p>Last change on <%#Eval("PostLastModified") %></p>
             </article>
         </ItemTemplate>
         <ItemSeparatorTemplate>

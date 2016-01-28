@@ -24,24 +24,10 @@ namespace SimpleBlogSystem
             this.ListViewCategories.DataSource = categoriesData;
             this.ListViewCategories.DataBind();
         }
-        
-        //protected void CategoryButton_Click(object sender, EventArgs e)
-        //{
-        //    string categoryName = ((Button)sender).Text;
 
-        //    PostsService posts = new PostsService();
-        //    var postsData = posts.All()
-        //        .Where(p => p.Categories.Any(c => c.CategoryName == categoryName))
-        //        .ToList();
-
-        //    this.ListViewPosts.DataSource = postsData;
-        //    this.ListViewPosts.DataBind();
-        //}
-
-        protected void CategoryLink_ServerClick(object sender, EventArgs e)
+        protected void CategoryLink_Click(object sender, EventArgs e)
         {
-            string categoryName = this.CategoryLink.innerHtml;
-                //((HtmlGenericControl)sender).InnerHtml;
+            string categoryName = ((LinkButton)sender).Text;
 
             PostsService posts = new PostsService();
             var postsData = posts.All()
