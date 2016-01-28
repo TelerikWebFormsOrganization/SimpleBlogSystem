@@ -11,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -52,7 +52,7 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/Contact">Categories</a></li>
-						<li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/About">About</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
@@ -73,13 +73,31 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-3 col-md-2 sidebar">
+            <asp:ListView runat="server" ID="ListViewCategories">
+                <LayoutTemplate>
+                    <ul class="nav nav-sidebar">
+                        <li class="sidebar-title">
+                            <a href='~/Home>'>Home</a>
+                        </li>
+                        <p runat="server" id="itemPlaceholder"></p>
+                    </ul>
+                </LayoutTemplate>
+                <ItemTemplate>
+                    <li>
+                        <a href='<%#Eval("CategoryName") %>'><%#Eval("CategoryName") %></a>
+                    </li>
+                </ItemTemplate>
+            </asp:ListView>
+        </div>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer class="text-center">
                 <p>A Simple Blog Application</p>
-				<strong>&copy; <%: DateTime.Now.Year %> Telerik Academy</strong>
+                <strong>&copy; <%: DateTime.Now.Year %> SimpleBlogSystem v1.0</strong>
             </footer>
         </div>
     </form>

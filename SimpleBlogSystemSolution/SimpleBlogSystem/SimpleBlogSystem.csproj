@@ -214,6 +214,7 @@
     </Content>
     <Content Include="Admin\AdminPanel.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Home.aspx" />
     <Content Include="Posts\NewCategory.aspx" />
     <Content Include="Posts\NewPost.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
@@ -421,6 +422,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Posts\NewCategory.aspx.cs">
       <DependentUpon>NewCategory.aspx</DependentUpon>
