@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using SimpleBlogSystem.Models;
+using SimpleBlogSystem.Common;
 
 namespace SimpleBlogSystem.Account
 {

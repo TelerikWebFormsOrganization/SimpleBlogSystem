@@ -13,6 +13,8 @@
     {
         IQueryable<Post> All(int page = 1, int pageSize = GlobalConstants.DefaultPageSize);
 
-        int Add(string name, string description, string creator, bool isPrivate = false);
+        int Add(string title, string postContent, string creator, List<int> categories);
+
+        void Update(int postId, string title, string postContent, List<int> addCategoryIds, List<int> removeCategoryIds);
     }
 }

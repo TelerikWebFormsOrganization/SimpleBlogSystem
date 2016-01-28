@@ -246,6 +246,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="UserDetails.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -394,7 +395,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -411,6 +411,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="UserDetails.aspx.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserDetails.aspx.designer.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -419,8 +426,24 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <ProjectReference Include="..\SimpleBlogSystem.Common\SimpleBlogSystem.Common.csproj">
+      <Project>{224c2ddd-61a5-46cf-8a00-d356867df492}</Project>
+      <Name>SimpleBlogSystem.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleBlogSystem.Data\SimpleBlogSystem.Data.csproj">
+      <Project>{a0b3d261-3137-4b48-af4c-f0ade6752860}</Project>
+      <Name>SimpleBlogSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleBlogSystem.Models\SimpleBlogSystem.Models.csproj">
+      <Project>{23189034-ae51-4cc6-8cdb-358a5f6dd280}</Project>
+      <Name>SimpleBlogSystem.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleBlogSystem.Services\SimpleBlogSystem.Services.csproj">
+      <Project>{43eaa7bc-7859-420d-95c4-1e3ab45a1c9f}</Project>
+      <Name>SimpleBlogSystem.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
