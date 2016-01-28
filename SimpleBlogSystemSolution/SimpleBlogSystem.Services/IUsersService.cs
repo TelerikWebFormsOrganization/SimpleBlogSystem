@@ -13,5 +13,7 @@
         void Update(string userId, string email, string username);
 
         void Remove(int userId);
+
+        int Register();
     }
 }

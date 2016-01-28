@@ -7,7 +7,6 @@
 
     public class CommentsService : ICommentsService
     {
-
         private readonly EfGenericRepository<Post> posts;
         private readonly EfGenericRepository<Comment> comments;
         private readonly EfGenericRepository<User> users;

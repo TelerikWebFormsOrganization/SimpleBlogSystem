@@ -1,9 +1,11 @@
 ﻿namespace SimpleBlogSystem.Services
 {
+    using System;
     using System.Linq;
     using Common.Constants;
     using Data;
     using Models;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     public class UsersService : IUsersService
     {
@@ -56,6 +58,11 @@
 
             this.users.Delete(user);
             this.users.SaveChanges();
+        }
+
+        public int Register()
+        {
+            return 0;
         }
     }
 }
