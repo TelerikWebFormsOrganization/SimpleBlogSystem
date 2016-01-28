@@ -19,6 +19,11 @@
         public int PostId { get; set; }
 
         [Required]
+        [MinLength(3)]
+        [MaxLength(50)]
+        public string Title { get; set; }
+
+        [Required]
         [MinLength(200)]
         [MaxLength(5000)]
         public string PostContent { get; set; }
