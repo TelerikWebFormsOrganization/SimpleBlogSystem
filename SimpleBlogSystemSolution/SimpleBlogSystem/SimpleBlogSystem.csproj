@@ -213,8 +213,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Admin\AdminPanel.Master" />
+    <Content Include="Home\Home.aspx" />
+    <Content Include="Home\Home.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Home.aspx" />
     <Content Include="Posts\NewCategory.aspx" />
     <Content Include="Posts\NewPost.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
@@ -423,12 +424,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
+    <Compile Include="Home\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
+    <Compile Include="Home\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Home.Master.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\Home.Master.designer.cs">
+      <DependentUpon>Home.Master</DependentUpon>
     </Compile>
     <Compile Include="Posts\NewCategory.aspx.cs">
       <DependentUpon>NewCategory.aspx</DependentUpon>

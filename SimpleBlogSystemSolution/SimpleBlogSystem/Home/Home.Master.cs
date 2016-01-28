@@ -12,7 +12,7 @@ using SimpleBlogSystem.Services;
 
 namespace SimpleBlogSystem
 {
-    public partial class SiteMaster : MasterPage
+    public partial class HomeMaster : MasterPage
     {
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
@@ -71,6 +71,16 @@ namespace SimpleBlogSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+            {
+                return;
+            }
+
+            CategoriesService categories = new CategoriesService();
+            var data = categories.All().ToList();
+            
+            this.ListViewCategories.DataSource = data;
+            this.ListViewCategories.DataBind();
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

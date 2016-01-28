@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SimpleBlogSystem {
+namespace SimpleBlogSystem.Home {
     
     
     public partial class Home {

@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.Master.cs" Inherits="SimpleBlogSystem.HomeMaster" %>
+
+
+<asp:Content ID="CategoriesSideBar" ContentPlaceHolderID="SideBar" runat="server">
+    <div class="col-sm-3 col-md-2 sidebar">
+        <asp:ListView runat="server" ID="ListViewCategories">
+            <LayoutTemplate>
+                <ul class="nav nav-sidebar">
+                    <li class="sidebar-title">
+                        <a href='~/Home/Home>'>Home</a>
+                    </li>
+                    <p runat="server" id="itemPlaceholder"></p>
+                </ul>
+            </LayoutTemplate>
+            <ItemTemplate>
+                <li>
+                    <a href='<%#Eval("CategoryName") %>'><%#Eval("CategoryName") %></a>
+                </li>
+            </ItemTemplate>
+        </asp:ListView>
+    </div>
+</asp:Content>
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:ContentPlaceHolder ID="CategoriesPosts" runat="server">
+
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+
+
