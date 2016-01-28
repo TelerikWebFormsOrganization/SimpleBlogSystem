@@ -7,21 +7,32 @@
 
     public class CategoriesService : ICategoriesService
     {
-        private readonly IRepository<Category> categories;
+        private readonly EfGenericRepository<Category> categories;
 
-        public CategoriesService(IRepository<Category> categoriesRepo)
+        public CategoriesService()
         {
-            this.categories = categoriesRepo;
+            this.categories = new EfGenericRepository<Category>(new SimpleBlogSystemDbContext());
         }
 
-        public int Add(string name)
+        public int? Add(string name)
         {
+            var foundCategory = this.categories
+                .All()
+                .Where(c => c.CategoryName == name)
+                .FirstOrDefault();
+
+            if (foundCategory != null)
+            {
+                return null;
+            }
+
             var newCategory = new Category()
             {
                 CategoryName = name
             };
 
-            this.categories.Add(newCategory);
+            this.categories.
+                Add(newCategory);
             this.categories.SaveChanges();
 
             return newCategory.CategoryId;

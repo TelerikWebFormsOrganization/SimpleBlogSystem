@@ -1,6 +1,5 @@
 ﻿namespace SimpleBlogSystem.Services
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Common.Constants;
@@ -9,19 +8,29 @@
 
     public class PostsService : IPostsService
     {
-        private readonly IRepository<Post> posts;
-        private readonly IRepository<Category> categories;
-        private readonly IRepository<User> users;
+        private readonly EfGenericRepository<Post> posts;
+        private readonly EfGenericRepository<Category> categories;
+        private readonly EfGenericRepository<User> users;
 
-        public PostsService(IRepository<Post> postsRepo, IRepository<Category> categoriesRepo, IRepository<User> usersRepo)
+        public PostsService()
         {
-            this.posts = postsRepo;
-            this.categories = categoriesRepo;
-            this.users = usersRepo;
+            this.posts = new EfGenericRepository<Post>(new SimpleBlogSystemDbContext());
+            this.categories = new EfGenericRepository<Category>(new SimpleBlogSystemDbContext());
+            this.users = new EfGenericRepository<User>(new SimpleBlogSystemDbContext());
         }
 
-        public int Add(string title, string postContent, string creator, List<int> categoriesId)
+        public int? Add(string title, string postContent, string creator, List<int> categoriesId)
         {
+
+            var foundCategory = this.posts
+                .All()
+                .Where(p => p.Title == title)
+                .FirstOrDefault();
+
+            if (foundCategory != null)
+            {
+                return null;
+            }
 
             var currentUser = this.users
                 .All()
@@ -61,6 +70,15 @@
             return result;
         }
 
+        public IQueryable<Post> GetById(int postId)
+        {
+            var result = this.posts
+                .All()
+                .Where(p => p.PostId == postId);
+
+            return result;
+        }
+
         public void Update(int postId, string title, string postContent, List<int> addCategoryIds, List<int> removeCategoryIds)
         {
             var post = this.posts
@@ -94,11 +112,21 @@
                 var category = this.categories
                     .All()
                     .FirstOrDefault(c => c.CategoryId == categoryId);
-                
-                    post.Categories.Add(category);
+
+                post.Categories.Add(category);
             }
 
-            posts.SaveChanges();
+            this.posts.SaveChanges();
+        }
+
+        public void Remove(int postId)
+        {
+            var post = this.posts
+                    .All()
+                    .FirstOrDefault(p => p.PostId == postId);
+
+            this.posts.Delete(post);
+            this.posts.SaveChanges();
         }
     }
 }
