@@ -22,5 +22,8 @@
 
         public virtual User User { get; set; }
 
+        public int PostId { get; set; }
+
+        public virtual Post Post { get; set; }
     }
 }
