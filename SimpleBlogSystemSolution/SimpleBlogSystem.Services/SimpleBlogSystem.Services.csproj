@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UsersService.cs" />
+    <Compile Include="ICategoriesService.cs" />
+    <Compile Include="CategoriesService.cs" />
+    <Compile Include="IUsersService.cs" />
+    <Compile Include="ICommentsService.cs" />
+    <Compile Include="CommentsService.cs" />
     <Compile Include="PostsService.cs" />
     <Compile Include="IPostsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
