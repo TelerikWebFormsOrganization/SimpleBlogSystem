@@ -11,7 +11,7 @@
             </LayoutTemplate>
             <ItemTemplate>
                 <li>
-                    <asp:Button ID="CategoryButton" runat="server" Text="<%#Eval("CategoryName") %>'><%#Eval("CategoryName") %>" OnClick="CategoryButton_Click" />
+                    <asp:LinkButton ID="CategoryLink" runat="server" Text='<%# Eval("CategoryName") %>'  OnClick="CategoryLink_Click"></asp:LinkButton>
                 </li>
             </ItemTemplate>
         </asp:ListView>
@@ -29,8 +29,8 @@
             <article>
                 <h3><%#Eval("Title") %></h3>
                 <p><%#Eval("PostContent") %></p>
-                <p>Published by <%#Eval("User.UserName") %> at <%#Eval("PostDatePublished") %> </p>
-                <p>Last change at <%#Eval("PostLastModified") %></p>
+                <p>Published by <%#Eval("User.UserName") %> on <%#Eval("PostDatePublished") %> </p>
+                <p>Last change on <%#Eval("PostLastModified") %></p>
             </article>
         </ItemTemplate>
         <ItemSeparatorTemplate>

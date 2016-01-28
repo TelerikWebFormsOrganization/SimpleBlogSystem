@@ -13,9 +13,11 @@
 
         public CommentsService()
         {
-            this.posts = new EfGenericRepository<Post>(new SimpleBlogSystemDbContext());
-            this.comments = new EfGenericRepository<Comment>(new SimpleBlogSystemDbContext());
-            this.users = new EfGenericRepository<User>(new SimpleBlogSystemDbContext());
+            var data = new SimpleBlogSystemDbContext();
+
+            this.posts = new EfGenericRepository<Post>(data);
+            this.comments = new EfGenericRepository<Comment>(data);
+            this.users = new EfGenericRepository<User>(data);
         }
 
         public int Add(string commentContent, string creator, int postId)
@@ -33,7 +35,7 @@
             {
                 CommentContent = commentContent,
                 User = currentUser,
-                UserId = int.Parse(currentUser.Id),
+                UserId = currentUser.Id,
                 Post = currentPost,
                 PostId = postId
             };

@@ -14,27 +14,29 @@
 
         private static void Seed()
         {
-            CategoriesService categories = new CategoriesService();
+            //CategoriesService categories = new CategoriesService();
 
-            categories.Add("Programming");
-            categories.Add("CSharp");
-            categories.Add("JavaScript");
-            categories.Add("Hobbies");
+            //categories.Add("Programming");
+            //categories.Add("CSharp");
+            //categories.Add("JavaScript");
+            //categories.Add("Hobbies");
 
-            var all = categories.All().ToList();
+            //var all = categories.All().ToList();
 
-            //PostsService posts = new PostsService();
+            //foreach (var cat in all)
+            //{
 
-            //posts.Add("Exam",
-            //    "AAAAAAAAAAAAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa. dsfkljsdlfk. dsfkjhaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.", 
-            //    "john@john.com", 
-            //    new List<int>() { 1});
+            //    Console.WriteLine(cat.CategoryName);
+            //}
 
-            foreach (var cat in all)
-            {
+            PostsService posts = new PostsService();
 
-                Console.WriteLine(cat.CategoryName);
-            }
+            posts.Add("Exam",
+                "AAAAAAAAAAAAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaakejslfkjelskfjslkefjeklsjfk. dsfkjhaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.",
+                "john@john.com",
+                new List<int>() { 1 });
+
+
         }
     }
 }

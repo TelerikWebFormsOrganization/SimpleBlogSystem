@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using SimpleBlogSystem.Services;
 
@@ -23,10 +24,10 @@ namespace SimpleBlogSystem
             this.ListViewCategories.DataSource = categoriesData;
             this.ListViewCategories.DataBind();
         }
-        
-        protected void CategoryButton_Click(object sender, EventArgs e)
+
+        protected void CategoryLink_Click(object sender, EventArgs e)
         {
-            string categoryName = ((Button)sender).Text;
+            string categoryName = ((LinkButton)sender).Text;
 
             PostsService posts = new PostsService();
             var postsData = posts.All()
