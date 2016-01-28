@@ -11,7 +11,7 @@
             </LayoutTemplate>
             <ItemTemplate>
                 <li>
-                    <a href='<%#Eval("CategoryName") %>'><%#Eval("CategoryName") %></a>
+                    <asp:Button ID="CategoryButton" runat="server" Text="<%#Eval("CategoryName") %>'><%#Eval("CategoryName") %>" OnClick="CategoryButton_Click" />
                 </li>
             </ItemTemplate>
         </asp:ListView>
@@ -19,17 +19,22 @@
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <h3>Your contact page.</h3>
-    <address>
-        One Microsoft Way<br />
-        Redmond, WA 98052-6399<br />
-        <abbr title="Phone">P:</abbr>
-        425.555.0100
-    </address>
-
-    <address>
-        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-    </address>
+    <asp:ListView ID="ListViewPosts" runat="server">
+        <LayoutTemplate>
+            <div class="jumbotron">
+                <p runat="server" id="itemPlaceholder"></p>
+            </div>
+        </LayoutTemplate>
+        <ItemTemplate>
+            <article>
+                <h3><%#Eval("Title") %></h3>
+                <p><%#Eval("PostContent") %></p>
+                <p>Published by <%#Eval("User.UserName") %> at <%#Eval("PostDatePublished") %> </p>
+                <p>Last change at <%#Eval("PostLastModified") %></p>
+            </article>
+        </ItemTemplate>
+        <ItemSeparatorTemplate>
+            <hr />
+        </ItemSeparatorTemplate>
+    </asp:ListView>
 </asp:Content>

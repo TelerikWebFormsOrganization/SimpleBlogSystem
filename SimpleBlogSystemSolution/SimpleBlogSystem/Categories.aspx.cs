@@ -18,10 +18,23 @@ namespace SimpleBlogSystem
             }
 
             CategoriesService categories = new CategoriesService();
-            var data = categories.All().ToList();
+            var categoriesData = categories.All().ToList();
 
-            this.ListViewCategories.DataSource = data;
+            this.ListViewCategories.DataSource = categoriesData;
             this.ListViewCategories.DataBind();
+        }
+        
+        protected void CategoryButton_Click(object sender, EventArgs e)
+        {
+            string categoryName = ((Button)sender).Text;
+
+            PostsService posts = new PostsService();
+            var postsData = posts.All()
+                .Where(p => p.Categories.Any(c => c.CategoryName == categoryName))
+                .ToList();
+
+            this.ListViewPosts.DataSource = postsData;
+            this.ListViewPosts.DataBind();
         }
     }
 }
