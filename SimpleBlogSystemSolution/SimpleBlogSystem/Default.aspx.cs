@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SimpleBlogSystem.Services;
 
 namespace SimpleBlogSystem
 {
@@ -11,7 +12,11 @@ namespace SimpleBlogSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            PostsService posts = new PostsService();
+
+            var postsData = posts.All().ToList();
+            this.ListViewPosts.DataSource = postsData;
+            this.ListViewPosts.DataBind();
         }
     }
 }
