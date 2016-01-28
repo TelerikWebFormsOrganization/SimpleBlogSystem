@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-md-2">
 			<div class="row">
-				<asp:Button Text="Publish" class="btn btn-lg btn-primary" runat="server" />
+				<asp:Button Text="Publish" class="btn btn-lg btn-primary" runat="server" OnClick="On_Publish"/>
 			</div>
 			<br />
 			<div class="row">
@@ -25,6 +25,10 @@
 			<div class="row">
 				<asp:Label AssociatedControlID="CategorySelect" Text="Categories:" runat="server"></asp:Label>
 				<asp:CheckBoxList runat="server" ID="CategorySelect" CssClass="checkbox"></asp:CheckBoxList>
+			</div>
+			<div class="row">
+				<asp:Label runat="server" AssociatedControlID="TagsList" Text="Tags:"></asp:Label>
+				<asp:TextBox runat="server" ID="TagsList" CssClass="form-control"></asp:TextBox>
 			</div>
 		</div>
 	</div>
