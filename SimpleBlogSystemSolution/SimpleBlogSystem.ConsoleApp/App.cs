@@ -1,6 +1,7 @@
 ﻿namespace SimpleBlogSystem.ConsoleApp
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using Services;
 
@@ -21,6 +22,13 @@
             categories.Add("Hobbies");
 
             var all = categories.All().ToList();
+
+            //PostsService posts = new PostsService();
+
+            //posts.Add("Exam",
+            //    "AAAAAAAAAAAAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa. dsfkljsdlfk. dsfkjhaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.", 
+            //    "john@john.com", 
+            //    new List<int>() { 1});
 
             foreach (var cat in all)
             {

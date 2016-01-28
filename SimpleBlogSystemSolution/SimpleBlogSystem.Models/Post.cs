@@ -14,6 +14,7 @@
             this.PostDatePublished = DateTime.Now;
             this.comments = new HashSet<Comment>();
             this.categories = new HashSet<Category>();
+            this.PostLastModified = DateTime.Now;
         }
 
         public int PostId { get; set; }
