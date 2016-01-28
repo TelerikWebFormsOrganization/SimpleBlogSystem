@@ -29,7 +29,9 @@
             <article>
                 <div class="panel-body">
                     <h3><%#Eval("Title") %></h3>
-                    <p><%#Eval("PostContent") %></p>
+                    <input class="toggle-box"/>
+                    <label id='label<%#Eval("PostId") %>' onclick='showText(<%#Eval("PostId")%>)'>Click To Read</label>
+                    <div class="content" id='content<%#Eval("PostId") %>'><%#Eval("PostContent") %></div>
                     <p>Published by <b><%#Eval("User.UserName") %></b> on <%#Eval("PostDatePublished") %> </p>
                     <p>Last change on <%#Eval("PostLastModified") %></p>
                 </div>
@@ -39,4 +41,6 @@
             <hr />
         </ItemSeparatorTemplate>
     </asp:ListView>
+    <script src="Scripts/custom-script.js"></script>
+
 </asp:Content>
