@@ -7,6 +7,9 @@ namespace SimpleBlogSystem
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            routes.MapPageRoute("Login",
+            "login", "~/Account/Login.aspx");
+
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);

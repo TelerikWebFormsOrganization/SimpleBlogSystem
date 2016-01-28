@@ -1,7 +1,4 @@
-﻿using System;
-using System.Web;
-
-namespace SimpleBlogSystem.Models
+﻿namespace SimpleBlogSystem.Models
 {
     using System.Security.Claims;
     using System.Threading.Tasks;

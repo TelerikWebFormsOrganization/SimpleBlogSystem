@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace SimpleBlogSystem
 {
-    public partial class Admin : System.Web.UI.MasterPage
+    public partial class AdminPanel : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

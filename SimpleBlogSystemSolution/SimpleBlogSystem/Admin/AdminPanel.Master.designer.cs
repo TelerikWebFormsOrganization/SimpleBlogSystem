@@ -10,7 +10,7 @@
 namespace SimpleBlogSystem {
     
     
-    public partial class Admin {
+    public partial class AdminPanel {
         
         /// <summary>
         /// AdminContent control.
