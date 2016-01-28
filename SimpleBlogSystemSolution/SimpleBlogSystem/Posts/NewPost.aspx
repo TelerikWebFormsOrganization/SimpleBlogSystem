@@ -23,8 +23,8 @@
 			</div>
 			<br />
 			<div class="row">
-				<asp:Label AssociatedControlID="CategorySelect" Text="Category:" runat="server"></asp:Label>
-				<asp:CheckBoxList runat="server" ID="CategorySelect"></asp:CheckBoxList>
+				<asp:Label AssociatedControlID="CategorySelect" Text="Categories:" runat="server"></asp:Label>
+				<asp:CheckBoxList runat="server" ID="CategorySelect" CssClass="checkbox"></asp:CheckBoxList>
 			</div>
 		</div>
 	</div>
