@@ -1,48 +1,31 @@
 ﻿namespace SimpleBlogSystem.ConsoleApp
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using Data;
-    using Models;
+    using Services;
+
     public class App
     {
         static void Main(string[] args)
         {
-            SimpleBlogSystemDbContext data = new SimpleBlogSystemDbContext();
-            data.Posts.Count();
-
-            Seed(data);
+            Seed();
         }
 
-        private static void Seed(SimpleBlogSystemDbContext data)
+        private static void Seed()
         {
-            List<Category> categories = new List<Category>();
+            CategoriesService categories = new CategoriesService();
 
-            for (int i = 0; i < 5; i++)
-            {
-                data.Categories.Add(new Category()
-                {
-                    CategoryName = "category" + (i + 1)
-                });
-            }
+            categories.Add("Programming");
+            categories.Add("CSharp");
+            categories.Add("JavaScript");
+            categories.Add("Hobbies");
 
-            for (int i = 0; i < 10; i++)
-            {
-                data.Posts.Add(new Post()
-                {
-                    PostContent = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                    UserId = i % 3
-                });
-            }
+            var all = categories.All().ToList();
 
-            for (int i = 0; i < 5; i++)
+            foreach (var cat in all)
             {
-                data.Comments.Add(new Comment()
-                {
-                    CommentContent = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
-                    UserId = i % 2
-                });
+
+                Console.WriteLine(cat.CategoryName);
             }
         }
     }
