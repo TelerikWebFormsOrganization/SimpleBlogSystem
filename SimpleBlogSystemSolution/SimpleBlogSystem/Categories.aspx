@@ -11,7 +11,7 @@
             </LayoutTemplate>
             <ItemTemplate>
                 <li>
-                    <asp:LinkButton ID="CategoryLink" runat="server" Text='<%# Eval("CategoryName") %>'  OnClick="CategoryLink_Click"></asp:LinkButton>
+                    <asp:LinkButton ID="CategoryLink" runat="server" Text='<%# Eval("CategoryName") %>' OnClick="CategoryLink_Click"></asp:LinkButton>
                 </li>
             </ItemTemplate>
         </asp:ListView>
@@ -21,16 +21,18 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ListView ID="ListViewPosts" runat="server">
         <LayoutTemplate>
-            <div class="jumbotron">
+            <div class="panel panel-default">
                 <p runat="server" id="itemPlaceholder"></p>
             </div>
         </LayoutTemplate>
         <ItemTemplate>
             <article>
-                <h3><%#Eval("Title") %></h3>
-                <p><%#Eval("PostContent") %></p>
-                <p>Published by <%#Eval("User.UserName") %> on <%#Eval("PostDatePublished") %> </p>
-                <p>Last change on <%#Eval("PostLastModified") %></p>
+                <div class="panel-body">
+                    <h3><%#Eval("Title") %></h3>
+                    <p><%#Eval("PostContent") %></p>
+                    <p>Published by <b><%#Eval("User.UserName") %></b> on <%#Eval("PostDatePublished") %> </p>
+                    <p>Last change on <%#Eval("PostLastModified") %></p>
+                </div>
             </article>
         </ItemTemplate>
         <ItemSeparatorTemplate>
