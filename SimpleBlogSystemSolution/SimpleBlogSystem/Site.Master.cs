@@ -71,11 +71,6 @@ namespace SimpleBlogSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CategoriesService categories = new CategoriesService();
-            var categoriesData = categories.All().ToList();
-
-            this.ListViewCategories.DataSource = categoriesData;
-            this.ListViewCategories.DataBind();
         }
 
         protected void CategoryLink_Click(object sender, EventArgs e)

@@ -13,13 +13,13 @@ namespace SimpleBlogSystem {
     public partial class SiteMaster {
         
         /// <summary>
-        /// ListViewCategories control.
+        /// SideBar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListViewCategories;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder SideBar;
         
         /// <summary>
         /// MainContent control.
@@ -29,14 +29,5 @@ namespace SimpleBlogSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
-        
-        /// <summary>
-        /// SideBar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder SideBar;
     }
 }
