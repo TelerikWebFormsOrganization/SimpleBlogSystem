@@ -10,7 +10,7 @@
 namespace SimpleBlogSystem {
     
     
-    public partial class HomeMaster {
+    public partial class Categories {
         
         /// <summary>
         /// ListViewCategories control.
@@ -20,14 +20,5 @@ namespace SimpleBlogSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView ListViewCategories;
-        
-        /// <summary>
-        /// CategoriesPosts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder CategoriesPosts;
     }
 }

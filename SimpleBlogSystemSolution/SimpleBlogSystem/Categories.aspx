@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.Master.cs" Inherits="SimpleBlogSystem.HomeMaster" %>
+﻿<%@ Page Title="Categories" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Categories.aspx.cs" Inherits="SimpleBlogSystem.Categories" %>
 
 
 <asp:Content ID="CategoriesSideBar" ContentPlaceHolderID="SideBar" runat="server">
@@ -6,9 +6,6 @@
         <asp:ListView runat="server" ID="ListViewCategories">
             <LayoutTemplate>
                 <ul class="nav nav-sidebar">
-                    <li class="sidebar-title">
-                        <a href='~/Home/Home>'>Home</a>
-                    </li>
                     <p runat="server" id="itemPlaceholder"></p>
                 </ul>
             </LayoutTemplate>
@@ -22,10 +19,17 @@
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:ContentPlaceHolder ID="CategoriesPosts" runat="server">
+    <h2><%: Title %>.</h2>
+    <h3>Your contact page.</h3>
+    <address>
+        One Microsoft Way<br />
+        Redmond, WA 98052-6399<br />
+        <abbr title="Phone">P:</abbr>
+        425.555.0100
+    </address>
 
-    </asp:ContentPlaceHolder>
+    <address>
+        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    </address>
 </asp:Content>
-
-
-
