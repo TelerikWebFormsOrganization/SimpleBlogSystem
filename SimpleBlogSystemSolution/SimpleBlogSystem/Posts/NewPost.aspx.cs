@@ -12,10 +12,16 @@ namespace SimpleBlogSystem.Posts
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            PostContent.Attributes.Add("style", "resize:none");
             CategoriesService catService = new CategoriesService();
             CategorySelect.DataSource = catService.All().Select(x=> x.CategoryName).ToList();
             CategorySelect.DataBind();
             Page.DataBind();
+        }
+
+        protected void On_Publish(object sender, EventArgs e)
+        {
+
         }
     }
 }
