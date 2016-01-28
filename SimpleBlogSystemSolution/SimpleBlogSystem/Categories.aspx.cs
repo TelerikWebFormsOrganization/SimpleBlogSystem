@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using SimpleBlogSystem.Services;
 
@@ -24,9 +25,23 @@ namespace SimpleBlogSystem
             this.ListViewCategories.DataBind();
         }
         
-        protected void CategoryButton_Click(object sender, EventArgs e)
+        //protected void CategoryButton_Click(object sender, EventArgs e)
+        //{
+        //    string categoryName = ((Button)sender).Text;
+
+        //    PostsService posts = new PostsService();
+        //    var postsData = posts.All()
+        //        .Where(p => p.Categories.Any(c => c.CategoryName == categoryName))
+        //        .ToList();
+
+        //    this.ListViewPosts.DataSource = postsData;
+        //    this.ListViewPosts.DataBind();
+        //}
+
+        protected void CategoryLink_ServerClick(object sender, EventArgs e)
         {
-            string categoryName = ((Button)sender).Text;
+            string categoryName = this.CategoryLink.innerHtml;
+                //((HtmlGenericControl)sender).InnerHtml;
 
             PostsService posts = new PostsService();
             var postsData = posts.All()

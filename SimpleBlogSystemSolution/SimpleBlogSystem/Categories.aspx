@@ -5,13 +5,13 @@
     <div class="col-sm-3 col-md-2 sidebar">
         <asp:ListView runat="server" ID="ListViewCategories">
             <LayoutTemplate>
-                <ul class="nav nav-sidebar">
+                <ul id="list" runat="server" class="nav nav-sidebar">
                     <p runat="server" id="itemPlaceholder"></p>
                 </ul>
             </LayoutTemplate>
             <ItemTemplate>
-                <li>
-                    <asp:Button ID="CategoryButton" runat="server" Text="<%#Eval("CategoryName") %>'><%#Eval("CategoryName") %>" OnClick="CategoryButton_Click" />
+                <li id="a" runat="server">
+                    <a id="CategoryLink" runat="server" onserverclick="CategoryLink_ServerClick"><%# Eval("CategoryName") %></a>
                 </li>
             </ItemTemplate>
         </asp:ListView>

@@ -1,5 +1,6 @@
 ﻿namespace SimpleBlogSystem.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Common.Constants;
@@ -14,20 +15,22 @@
 
         public PostsService()
         {
-            this.posts = new EfGenericRepository<Post>(new SimpleBlogSystemDbContext());
-            this.categories = new EfGenericRepository<Category>(new SimpleBlogSystemDbContext());
-            this.users = new EfGenericRepository<User>(new SimpleBlogSystemDbContext());
+            var data = new SimpleBlogSystemDbContext();
+
+            this.posts = new EfGenericRepository<Post>(data);
+            this.categories = new EfGenericRepository<Category>(data);
+            this.users = new EfGenericRepository<User>(data);
         }
 
         public int? Add(string title, string postContent, string creator, List<int> categoriesId)
         {
 
-            var foundCategory = this.posts
+            var foundPosts = this.posts
                 .All()
                 .Where(p => p.Title == title)
                 .FirstOrDefault();
 
-            if (foundCategory != null)
+            if (foundPosts != null)
             {
                 return null;
             }
@@ -41,7 +44,7 @@
                 Title = title,
                 PostContent = postContent,
                 User = currentUser,
-                UserId = int.Parse(currentUser.Id)
+                UserId = currentUser.Id
             };
 
             foreach (int categoryId in categoriesId)
@@ -115,6 +118,8 @@
 
                 post.Categories.Add(category);
             }
+
+            post.PostLastModified = DateTime.Now;
 
             this.posts.SaveChanges();
         }
